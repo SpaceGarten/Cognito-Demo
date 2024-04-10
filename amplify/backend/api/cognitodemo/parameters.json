@@ -1,0 +1,5 @@
+{
+  "AppSyncApiName": "cognitodemo",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false
+}
