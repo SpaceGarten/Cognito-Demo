@@ -35,10 +35,8 @@ class registerViewController: UIViewController {
             return
         }
         
-        // Store the email for later use during verification
         self.registeredEmail = email
         
-        // Implement sign up logic...
     }
     
     @IBAction func verifyEmailButtonTapped(_ sender: UIButton) {
@@ -51,22 +49,15 @@ class registerViewController: UIViewController {
             Task {
                 do {
                     let result = try await Amplify.Auth.confirmSignUp(for: email, confirmationCode: verificationCode)
-                    // Handle success on the main thread if needed
                     DispatchQueue.main.async {
-                        // Navigate to the login screen or home screen
                         print("Verification successful: \(result)")
                     }
                 } catch {
-                    // Handle failure on the main thread if needed
                     DispatchQueue.main.async {
-                        // Show error message
                         print("Verification failed with error: \(error)")
                     }
                 }
             }
         
     }
-    
-    
-    // Add any additional methods needed for the view controller...
 }
