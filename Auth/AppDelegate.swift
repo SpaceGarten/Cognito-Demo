@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Amplify configured with auth plugin")
         } catch {
             print("Failed to initialize Amplify with \(error)")
+            return false
         }
         
         return true
