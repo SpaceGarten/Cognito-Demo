@@ -75,6 +75,8 @@ class registerViewController: UIViewController {
     @IBAction func verifyEmailButtonTapped(_ sender: UIButton) {
         guard let verificationCode = verifyTextField.text, !verificationCode.isEmpty,
               let email = registeredEmail else {
+            registerSuccessMessage.text = "Email or verification code cannot be empty"
+            registerSuccessMessage.isHidden = false
             print("Email or verification code cannot be empty")
             return
         }
@@ -83,12 +85,13 @@ class registerViewController: UIViewController {
             do {
                 let result = try await Amplify.Auth.confirmSignUp(for: email, confirmationCode: verificationCode)
                 DispatchQueue.main.async {
-                    print("Verification successful: \(result)")
+                    self.handleVerificationSuccess()
+
                 }
             } catch {
                 DispatchQueue.main.async {
-                    print("Verification failed with error: \(error)")
-                }
+                    self.registerSuccessMessage.text = "Verification failed: \(error.localizedDescription)"
+                                        self.registerSuccessMessage.isHidden = false                }
             }
         }
     }
@@ -100,9 +103,20 @@ class registerViewController: UIViewController {
             print("Successfully signed out")
             DispatchQueue.main.async { [weak self] in
                 self?.registerSuccessMessage.text = "Signed out"
+                self?.registerSuccessMessage.isHidden = false
                 self?.signOutButton.isHidden = true
-                // Optionally, you might want to navigate back to the sign-in screen.
+                self?.verifyTextField.isHidden = true
+                self?.verifyButton.isHidden = true
             }
         }
     }
+    
+    private func handleVerificationSuccess() {
+           verifyTextField.isHidden = true
+           verifyButton.isHidden = true
+           registerSuccessMessage.text = "Verification Successful. Signed In."
+           registerSuccessMessage.isHidden = false
+           signOutButton.isHidden = false
+           // You might want to navigate to a different screen at this point
+       }
 }

@@ -59,16 +59,21 @@ class loginSegmentViewController: UIViewController {
         Task {
             do {
                 let isSignedIn = try await Amplify.Auth.fetchAuthSession().isSignedIn
-                if isSignedIn {
-                    DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    if isSignedIn {
                         self.userStatusLabel.text = "Already signed in."
                         self.userStatusLabel.isHidden = false
                         self.signOutButton.isHidden = false
+                    } else {
+                        // This else block can be used to update the UI for a user that is not signed in
+                        self.userStatusLabel.text = "Please sign in."
+                        self.userStatusLabel.isHidden = false
+                        self.signOutButton.isHidden = true
                     }
                 }
             } catch {
                 DispatchQueue.main.async {
-                    self.userStatusLabel.text = "Error checking sign in status."
+                    self.userStatusLabel.text = "Error checking sign in status: \(error.localizedDescription)"
                     self.userStatusLabel.isHidden = false
                 }
             }
@@ -106,13 +111,16 @@ class loginSegmentViewController: UIViewController {
     }
     
     private func handleSignInResult(_ result: AuthSignInResult) {
-        if result.isSignedIn {
-            self.userStatusLabel.text = "Signed in successfully."
-            self.userStatusLabel.isHidden = false
-            self.signOutButton.isHidden = false
-            performSegue(withIdentifier: "showSignedInScreenSegue", sender: self)
-        } else {
-            
+        DispatchQueue.main.async {
+            if result.isSignedIn {
+                self.userStatusLabel.text = "Signed in successfully."
+                self.userStatusLabel.isHidden = false
+                self.signOutButton.isHidden = false
+            } else {
+                self.userStatusLabel.text = "Additional steps required to complete sign in."
+                self.userStatusLabel.isHidden = false
+            }
+            self.signInButton.isEnabled = true
         }
     }
     
