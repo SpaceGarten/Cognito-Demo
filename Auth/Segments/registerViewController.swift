@@ -17,7 +17,6 @@ class registerViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var verifyButton: UIButton!
-    
     @IBOutlet weak var verifyTextField: UITextField!
     
     private var registeredEmail: String?

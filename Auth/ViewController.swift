@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Amplify
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,20 @@ class ViewController: UIViewController {
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         segmentOutlet.setTitleTextAttributes(titleTextAttributes, for: .normal)
         self.view.bringSubviewToFront(registerSegmentView)
+        
+//        // Check if user is signed in
+//        Amplify.Auth.fetchAuthSession { result in
+//            switch result {
+//            case .success(let session):
+//                if session.isSignedIn {
+//                    // Direct the user to the main part of your application
+//                } else {
+//                    // Show the login screen
+//                }
+//            case .failure(let error):
+//                print("Fetch session failed with error \(error)")
+//            }
+//        }
     }
 
     @IBAction func segmentAction(_ sender: UISegmentedControl) {
