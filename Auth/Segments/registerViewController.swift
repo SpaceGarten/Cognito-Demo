@@ -27,12 +27,22 @@ class registerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupInitialState()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    private func setupInitialState() {
         passwordTextField.isSecureTextEntry = true
         confirmPasswordTextField.isSecureTextEntry = true
-        
         verifyTextField.isHidden = true
         verifyButton.isHidden = true
-        
         registerSuccessMessage.isHidden = true
         signOutButton.isHidden = true
     }
@@ -86,20 +96,20 @@ class registerViewController: UIViewController {
                 let result = try await Amplify.Auth.confirmSignUp(for: email, confirmationCode: verificationCode)
                 DispatchQueue.main.async {
                     self.handleVerificationSuccess()
-
+                    
                 }
             } catch {
                 DispatchQueue.main.async {
                     self.registerSuccessMessage.text = "Verification failed: \(error.localizedDescription)"
-                                        self.registerSuccessMessage.isHidden = false                }
+                    self.registerSuccessMessage.isHidden = false                }
             }
         }
     }
     
     
-    @IBAction func signOutTapped(_ sender: Any)  {
+    @IBAction func signOutTapped(_ sender: Any)   {
         Task {
-            await Amplify.Auth.signOut()
+            _ = await Amplify.Auth.signOut()
             print("Successfully signed out")
             DispatchQueue.main.async { [weak self] in
                 self?.registerSuccessMessage.text = "Signed out"
@@ -107,16 +117,16 @@ class registerViewController: UIViewController {
                 self?.signOutButton.isHidden = true
                 self?.verifyTextField.isHidden = true
                 self?.verifyButton.isHidden = true
+                // Optionally, reset other UI elements to their default states here
             }
         }
     }
     
     private func handleVerificationSuccess() {
-           verifyTextField.isHidden = true
-           verifyButton.isHidden = true
-           registerSuccessMessage.text = "Verification Successful. Signed In."
-           registerSuccessMessage.isHidden = false
-           signOutButton.isHidden = false
-           // You might want to navigate to a different screen at this point
-       }
+        verifyTextField.isHidden = true
+        verifyButton.isHidden = true
+        registerSuccessMessage.text = "Verification Successful. Signed In."
+        registerSuccessMessage.isHidden = false
+        signOutButton.isHidden = false
+    }
 }

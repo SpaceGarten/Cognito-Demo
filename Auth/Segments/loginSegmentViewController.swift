@@ -88,7 +88,6 @@ class loginSegmentViewController: UIViewController {
             return
         }
         
-        // Disable the sign-in button to prevent multiple taps.
         signInButton.isEnabled = false
         
         Task {
@@ -131,21 +130,14 @@ class loginSegmentViewController: UIViewController {
     
     private func signOutUser() {
         Task {
-            do {
-                try await Amplify.Auth.signOut()
-                DispatchQueue.main.async {
-                    self.userStatusLabel.text = "Signed out."
-                    self.signOutButton.isHidden = true
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    self.userStatusLabel.text = "Sign out failed: \(error.localizedDescription)"
-                    self.userStatusLabel.isHidden = false
-                }
+            _ = await Amplify.Auth.signOut()
+            DispatchQueue.main.async {
+                self.userStatusLabel.text = "Signed out."
+                self.signOutButton.isHidden = true
             }
         }
     }
-
+    
 }
 
 
