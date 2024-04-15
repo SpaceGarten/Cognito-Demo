@@ -19,6 +19,9 @@ class registerViewController: UIViewController {
     @IBOutlet weak var verifyButton: UIButton!
     @IBOutlet weak var verifyTextField: UITextField!
     
+    @IBOutlet weak var registerSuccessMessage: UILabel!
+    @IBOutlet weak var signOutButton: UIButton!
+    
     private var registeredEmail: String?
     
     override func viewDidLoad() {
@@ -29,17 +32,22 @@ class registerViewController: UIViewController {
         
         verifyTextField.isHidden = true
         verifyButton.isHidden = true
+        
+        registerSuccessMessage.isHidden = true
+        signOutButton.isHidden = true
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty,
-              password == confirmPasswordTextField.text else {
-            print("Ensure all fields are filled and passwords match.")
+              let confirmPassword = confirmPasswordTextField.text, !confirmPassword.isEmpty,
+              password == confirmPassword else {
+            self.registerSuccessMessage.text = "Ensure all fields are filled and passwords match."
+            self.registerSuccessMessage.isHidden = false
             return
         }
         
-        registeredEmail = email
+        self.registeredEmail = email
         
         Task {
             do {
@@ -48,16 +56,20 @@ class registerViewController: UIViewController {
                     if case .confirmUser = signUpResult.nextStep {
                         self.verifyTextField.isHidden = false
                         self.verifyButton.isHidden = false
-                        
-                    } else if case .done = signUpResult.nextStep {
+                        self.registerSuccessMessage.isHidden = true // Hide success message until verified
                     } else {
+                        self.registerSuccessMessage.text = "Check your email for verification code"
+                        self.registerSuccessMessage.isHidden = false
                     }
                 }
             } catch {
+                DispatchQueue.main.async {
+                    self.registerSuccessMessage.text = "Registration failed: \(error.localizedDescription)"
+                    self.registerSuccessMessage.isHidden = false
+                }
             }
         }
     }
-    
     
     
     @IBAction func verifyEmailButtonTapped(_ sender: UIButton) {
@@ -79,6 +91,18 @@ class registerViewController: UIViewController {
                 }
             }
         }
-        
+    }
+    
+    
+    @IBAction func signOutTapped(_ sender: Any)  {
+        Task {
+            await Amplify.Auth.signOut()
+            print("Successfully signed out")
+            DispatchQueue.main.async { [weak self] in
+                self?.registerSuccessMessage.text = "Signed out"
+                self?.signOutButton.isHidden = true
+                // Optionally, you might want to navigate back to the sign-in screen.
+            }
+        }
     }
 }

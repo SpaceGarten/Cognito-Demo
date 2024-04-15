@@ -32,7 +32,6 @@
 		34D6E26C2BC5AACF00BE88B1 /* AWSPredictionsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 34D6E26B2BC5AACF00BE88B1 /* AWSPredictionsPlugin */; };
 		34D6E26E2BC5AACF00BE88B1 /* AWSS3StoragePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 34D6E26D2BC5AACF00BE88B1 /* AWSS3StoragePlugin */; };
 		34D6E2702BC5AACF00BE88B1 /* CoreMLPredictionsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 34D6E26F2BC5AACF00BE88B1 /* CoreMLPredictionsPlugin */; };
-		34D6E2722BC9F6AF00BE88B1 /* signedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6E2712BC9F6AE00BE88B1 /* signedInViewController.swift */; };
 		384628F154372B7650361CE4 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5237C46E241BE7B954CCE3 /* AmplifyModels.swift */; };
 		99D66C0FBF019730722DC338 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 288F9B4F825E6C274AAE11E0 /* amplifyconfiguration.json */; };
 		C8A42BBB60FEC218609C8E4F /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 367B97189C9DA7A07F80E2C8 /* awsconfiguration.json */; };
@@ -72,7 +71,6 @@
 		348A96C52BC57AF60059B1D4 /* AuthUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		348A96D32BC58C820059B1D4 /* loginSegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginSegmentViewController.swift; sourceTree = "<group>"; };
 		34D6E2552BC5A42000BE88B1 /* registerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerViewController.swift; sourceTree = "<group>"; };
-		34D6E2712BC9F6AE00BE88B1 /* signedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signedInViewController.swift; sourceTree = "<group>"; };
 		367B97189C9DA7A07F80E2C8 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		8A0A604D6581D0DD368344B2 /* Todo.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Todo.swift; path = amplify/generated/models/Todo.swift; sourceTree = "<group>"; };
 		BC5237C46E241BE7B954CCE3 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				348A96AB2BC57AF60059B1D4 /* Assets.xcassets */,
 				348A96AD2BC57AF60059B1D4 /* LaunchScreen.storyboard */,
 				348A96B02BC57AF60059B1D4 /* Info.plist */,
-				34D6E2712BC9F6AE00BE88B1 /* signedInViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 				384628F154372B7650361CE4 /* AmplifyModels.swift in Sources */,
 				3449B49780D71EEB5659FED2 /* Todo+Schema.swift in Sources */,
 				286145D165D34AA7DB4DBF28 /* Todo.swift in Sources */,
-				34D6E2722BC9F6AF00BE88B1 /* signedInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
