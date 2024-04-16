@@ -7,6 +7,7 @@
 
 import UIKit
 import Amplify
+import AWSPluginsCore
 
 class loginSegmentViewController: UIViewController {
     
@@ -44,6 +45,36 @@ class loginSegmentViewController: UIViewController {
         signOutUser()
     }
     
+    @IBAction func anonSignInButtonTapped(_ sender: Any) {
+        Task {
+            let result = await fetchAuthSession()
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let session):
+                    if !session.isSignedIn {
+                        self.userStatusLabel.text = "Anon session active."
+                    } else {
+                        self.userStatusLabel.text = "User is signed in."
+                    }
+                    self.userStatusLabel.isHidden = false
+                    self.signOutButton.isHidden = session.isSignedIn
+                case .failure(let error):
+                    self.userStatusLabel.text = "Fetch session failed with error \(error)"
+                    self.userStatusLabel.isHidden = false
+                }
+            }
+        }
+    }
+
+    private func fetchAuthSession() async -> Result<AuthSession, AuthError> {
+        do {
+            let session = try await Amplify.Auth.fetchAuthSession()
+            return .success(session)
+        } catch {
+            return .failure(error as? AuthError ?? .unknown("Unexpected error occurred"))
+        }
+    }
+
     // MARK: - Private Methods
     private func setUpTextFields() {
         emailTextField.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)

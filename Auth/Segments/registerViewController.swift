@@ -93,7 +93,7 @@ class registerViewController: UIViewController {
         
         Task {
             do {
-                let result = try await Amplify.Auth.confirmSignUp(for: email, confirmationCode: verificationCode)
+                _ = try await Amplify.Auth.confirmSignUp(for: email, confirmationCode: verificationCode)
                 DispatchQueue.main.async {
                     self.handleVerificationSuccess()
                     

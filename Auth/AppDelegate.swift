@@ -16,12 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        if let amplifyConfigFilePath = Bundle.main.path(forResource: "amplifyconfiguration", ofType: "json") {
-//            print("Amplify configuration file path: \(amplifyConfigFilePath)")
-//        } else {
-//            print("Failed to find Amplify configuration file")
-//        }
-//        
         do {
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.configure()

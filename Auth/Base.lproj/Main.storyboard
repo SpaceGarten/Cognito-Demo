@@ -47,7 +47,7 @@
                                 <rect key="frame" x="16" y="704" width="361" height="50.333333333333371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Sign In Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFt-Sq-P2W">
-                                        <rect key="frame" x="99" y="0.0" width="163.33333333333337" height="20.333333333333332"/>
+                                        <rect key="frame" x="99.000000000000014" y="0.0" width="163.33333333333337" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -284,18 +284,21 @@
                                 <rect key="frame" x="32" y="15.000000000000004" width="170" height="34.333333333333343"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Anonymous Sign In"/>
+                                <connections>
+                                    <action selector="anonSignInButtonTapped:" destination="wdJ-2C-lvs" eventType="touchUpInside" id="S6X-tg-sLL"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fap-cG-gZh">
-                                <rect key="frame" x="32" y="74.333333333333329" width="297" height="91.999999999999986"/>
+                                <rect key="frame" x="32" y="74.333333333333314" width="297" height="85.666666666666686"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hiQ-Q6-Gau">
-                                        <rect key="frame" x="0.0" y="0.0" width="297" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="43.666666666666664"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYq-KA-Ebt">
-                                        <rect key="frame" x="0.0" y="58.000000000000014" width="297" height="34"/>
+                                        <rect key="frame" x="0.0" y="51.666666666666671" width="297" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -303,7 +306,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AP9-rq-14X">
-                                <rect key="frame" x="16" y="241.33333333333337" width="329" height="45"/>
+                                <rect key="frame" x="16" y="235" width="329" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="car-qC-IXu"/>
@@ -317,16 +320,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="103" translatesAutoresizingMaskIntoConstraints="NO" id="o2e-Mo-o2f">
-                                <rect key="frame" x="0.0" y="286.33333333333331" width="361" height="34.333333333333314"/>
+                                <rect key="frame" x="0.0" y="280" width="361" height="40.666666666666686"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed In Success." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sY-R8-QEL">
-                                        <rect key="frame" x="0.0" y="0.0" width="144" height="34.333333333333336"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed In Success." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sY-R8-QEL">
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="40.666666666666664"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNc-hY-u31" userLabel="signOutButton">
-                                        <rect key="frame" x="247" y="0.0" width="114" height="34.333333333333336"/>
+                                        <rect key="frame" x="232" y="0.0" width="129" height="40.666666666666664"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Sign Out"/>
                                         <connections>
@@ -355,7 +358,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="anonSignInButton" destination="2vR-gD-5bV" id="KRm-iZ-c2S"/>
+                        <outlet property="anonSignInButton" destination="2vR-gD-5bV" id="Lj0-0f-6Fv"/>
                         <outlet property="emailTextField" destination="hiQ-Q6-Gau" id="BS6-7w-GPK"/>
                         <outlet property="passwordTextField" destination="aYq-KA-Ebt" id="xLA-kx-NV1"/>
                         <outlet property="signInButton" destination="AP9-rq-14X" id="Nri-Ak-BDD"/>
