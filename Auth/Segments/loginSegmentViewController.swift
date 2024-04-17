@@ -96,7 +96,6 @@ class loginSegmentViewController: UIViewController {
                         self.userStatusLabel.isHidden = false
                         self.signOutButton.isHidden = false
                     } else {
-                        // This else block can be used to update the UI for a user that is not signed in
                         self.userStatusLabel.text = "Please sign in."
                         self.userStatusLabel.isHidden = false
                         self.signOutButton.isHidden = true

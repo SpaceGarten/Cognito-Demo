@@ -117,7 +117,6 @@ class registerViewController: UIViewController {
                 self?.signOutButton.isHidden = true
                 self?.verifyTextField.isHidden = true
                 self?.verifyButton.isHidden = true
-                // Optionally, reset other UI elements to their default states here
             }
         }
     }
