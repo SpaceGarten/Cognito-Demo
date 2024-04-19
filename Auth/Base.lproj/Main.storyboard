@@ -63,6 +63,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="apple"/>
+                                                <connections>
+                                                    <action selector="appleSIgnInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQO-c9-san"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMP-2Y-R9m">
                                                 <rect key="frame" x="28" y="0.0" width="20" height="20"/>
@@ -90,6 +93,12 @@
                                     <constraint firstAttribute="bottom" secondItem="TWf-cw-hke" secondAttribute="bottom" id="zDN-hH-V6x"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSO Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrV-rP-HJv">
+                                <rect key="frame" x="106" y="774" width="181" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,10 +106,13 @@
                             <constraint firstItem="W2G-VJ-zye" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1jP-3T-upT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XKk-I3-ejW" secondAttribute="bottom" constant="194" id="27S-Kd-fb3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lse-8D-tOT" secondAttribute="trailing" constant="16" id="6b5-ov-den"/>
+                            <constraint firstItem="QrV-rP-HJv" firstAttribute="centerX" secondItem="lse-8D-tOT" secondAttribute="centerX" id="8id-rv-e7b"/>
                             <constraint firstItem="lse-8D-tOT" firstAttribute="top" secondItem="XKk-I3-ejW" secondAttribute="bottom" constant="80" id="Cvn-I1-aeC"/>
                             <constraint firstItem="W2G-VJ-zye" firstAttribute="top" secondItem="bnC-B4-W69" secondAttribute="bottom" constant="40" id="DXu-eX-Pl5"/>
+                            <constraint firstItem="QrV-rP-HJv" firstAttribute="top" secondItem="lse-8D-tOT" secondAttribute="bottom" constant="19.666666666666629" id="FnT-Xb-ng7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XKk-I3-ejW" secondAttribute="trailing" constant="16" id="LTy-1N-W32"/>
                             <constraint firstItem="Ruz-Af-esb" firstAttribute="width" secondItem="XKk-I3-ejW" secondAttribute="width" id="Lup-6n-FNV"/>
+                            <constraint firstItem="QrV-rP-HJv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="106" id="M4x-Wo-q03"/>
                             <constraint firstItem="XKk-I3-ejW" firstAttribute="top" secondItem="W2G-VJ-zye" secondAttribute="bottom" constant="10" id="MAK-Vf-aoR"/>
                             <constraint firstItem="lse-8D-tOT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Obi-M8-Yes"/>
                             <constraint firstItem="bnC-B4-W69" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="125" id="SUI-Fw-k6M"/>
@@ -112,13 +124,17 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W2G-VJ-zye" secondAttribute="trailing" constant="16" id="dCr-13-2ly"/>
                             <constraint firstItem="Ruz-Af-esb" firstAttribute="height" secondItem="XKk-I3-ejW" secondAttribute="height" id="dNl-t4-Nzw"/>
                             <constraint firstItem="lse-8D-tOT" firstAttribute="top" secondItem="Ruz-Af-esb" secondAttribute="bottom" constant="80" id="dyg-HL-SJQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QrV-rP-HJv" secondAttribute="bottom" constant="23" id="qAc-sd-7RN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lse-8D-tOT" secondAttribute="bottom" constant="63.670000000000002" id="xJO-ea-mdQ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appleSignInButton" destination="uG8-1r-kWx" id="cN4-Rc-0f5"/>
+                        <outlet property="googleSignInButton" destination="9Jh-qM-kIY" id="YNt-rl-LG1"/>
                         <outlet property="loginSegmentView" destination="XKk-I3-ejW" id="EIk-YY-0hU"/>
                         <outlet property="registerSegmentView" destination="Ruz-Af-esb" id="DsL-z0-QX7"/>
                         <outlet property="segmentOutlet" destination="W2G-VJ-zye" id="iOo-gQ-4Cm"/>
+                        <outlet property="ssoSignInStatusLabel" destination="QrV-rP-HJv" id="2Gb-3e-j1L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

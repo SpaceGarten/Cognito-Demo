@@ -71,6 +71,7 @@
 		348A96C52BC57AF60059B1D4 /* AuthUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		348A96D32BC58C820059B1D4 /* loginSegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginSegmentViewController.swift; sourceTree = "<group>"; };
 		34D6E2552BC5A42000BE88B1 /* registerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerViewController.swift; sourceTree = "<group>"; };
+		34D6E2732BD1819C00BE88B1 /* Auth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Auth.entitlements; sourceTree = "<group>"; };
 		367B97189C9DA7A07F80E2C8 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		8A0A604D6581D0DD368344B2 /* Todo.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Todo.swift; path = amplify/generated/models/Todo.swift; sourceTree = "<group>"; };
 		BC5237C46E241BE7B954CCE3 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 		348A96A12BC57AF40059B1D4 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				34D6E2732BD1819C00BE88B1 /* Auth.entitlements */,
 				348A96D22BC58C600059B1D4 /* Segments */,
 				348A96A22BC57AF40059B1D4 /* AppDelegate.swift */,
 				348A96A42BC57AF40059B1D4 /* SceneDelegate.swift */,
@@ -541,6 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Auth/Auth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GM7QT8X369;
@@ -556,7 +559,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Auth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.myauthapp123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -569,6 +572,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Auth/Auth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GM7QT8X369;
@@ -584,7 +588,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Auth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.myauthapp123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
